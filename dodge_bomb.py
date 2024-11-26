@@ -40,7 +40,7 @@ def gameover(screen: pg.Surface) -> None:
     blackout = pg.Surface((WIDTH, HEIGHT))  # 黒のSurface
     pg.draw.rect(blackout, (0, 0, 0), (0, 0, WIDTH, HEIGHT))  # 画面を黒で塗りつぶす
     blackout.set_alpha(128)  # 透明度の設定
-    screen.blit(blackout, (0, 0))  
+    screen.blit(blackout, (0, 0))  # 画面に表示  
     font = pg.font.Font(None, 80)  # フォントの設定
     text = font.render("Game Over", True, (255, 255, 255))  # 文字の設定
     screen.blit(text, (WIDTH//2 - 150, HEIGHT//2 - 40))  # 文字を表示
