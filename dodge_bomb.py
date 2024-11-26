@@ -58,6 +58,7 @@ def init_bb_imgs() -> tuple[list[pg.Surface], list[int]]:
     引数:なし
     戻り値:
     """
+    # 作成途中
 
 
 def main():
