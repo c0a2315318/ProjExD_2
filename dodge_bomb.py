@@ -15,6 +15,7 @@ DELTA = {
     pg.K_RIGHT : (+5, 0),
     }
 
+
 def check_bound(rct: pg.Rect) -> tuple[bool, bool]:
     """
     引数で与えられたRectが画面の中か外かを判定する
@@ -28,7 +29,13 @@ def check_bound(rct: pg.Rect) -> tuple[bool, bool]:
         tate = False
     return yoko, tate
 
+
 def gameover(screen: pg.Surface) -> None:
+    """
+    こうかとんが爆弾に当たったときにゲームオーバー画面を表示する
+    引数:screen
+    戻り値:なし
+    """
     print("ゲームオーバー")  # 動作確認用
     blackout = pg.Surface((WIDTH, HEIGHT))  # 黒のSurface
     pg.draw.rect(blackout, (0, 0, 0), (0, 0, WIDTH, HEIGHT))  # 画面を黒で塗りつぶす
@@ -37,15 +44,20 @@ def gameover(screen: pg.Surface) -> None:
     font = pg.font.Font(None, 80)  # フォントの設定
     text = font.render("Game Over", True, (255, 255, 255))  # 文字の設定
     screen.blit(text, (WIDTH//2 - 150, HEIGHT//2 - 40))  # 文字を表示
-    kk_cry_img = pg.image.load("fig/8.png") # こうかとんの画像
-    #kk_cry_img = pg.transform.rotozoom(kk_cry_img, 0, 0.9)  # こうかとんの拡大
+    kk_cry_img = pg.image.load("fig/8.png") # こうかとんの画像読み込み
     screen.blit(kk_cry_img, (WIDTH//2 + 200, HEIGHT//2 - 40))  # こうかとん右に表示
     screen.blit(kk_cry_img, (WIDTH//2 - 240, HEIGHT//2 - 40))  # こうかとん左に表示
     pg.display.update()
     time.sleep(5)
     return
-    
 
+
+def init_bb_imgs() -> tuple[list[pg.Surface], list[int]]:
+    """
+    爆弾の大きさと速度を変化させる
+    引数:なし
+    戻り値:
+    """
 
 
 def main():
